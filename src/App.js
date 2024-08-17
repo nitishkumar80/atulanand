@@ -1,18 +1,51 @@
-import React from 'react';
-import { HashRouter } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Routes from './Routes';
-import './style/App.css';
+import React from "react";
+import "./style.css";
+import Navbar from "./components/Navbar"
+import ScrollTop from "./components/ScrollTop"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import Home from "./pages/Home"
+import Trainers from ".//pages/Trainers"
+import Features from ".//pages/Features"
+import Plans from "./pages/Plans"
+import FAQs from "./pages/FAQs"
+import Footer from "./components/Footer"
+import About from "./components/About";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <HashRouter>
-        <Navbar />
-        <Routes />
-      </HashRouter>
+    <div>
+      <Router>
+        <ScrollTop/>
+        <Navbar/>
+        <Switch>
+            <Route path="/" exact component= {Home} />
+            <Route path="/Plans" exact component= {Plans} />
+            <Route path="/Features" exact component= {Features} />
+            <Route path="/FAQs" exact component= {FAQs} />
+            <Route path="/Trainers" exact component= {Trainers} />
+            <Route path="/About" exact component= {About} />
+
+          </Switch>
+
+          <Footer/>
+
+        </Router>
     </div>
   );
 }
 
-export default App;
+/**
+ <Router>
+        <Navbar/>
+        
+        <Switch>
+            <Route path="/" exact component= {Home} />
+            <Route path="/Plans" exact component= {Plans} />
+            <Route path="/Features" exact component= {Features} />
+            <Route path="/Trainers" exact component= {Trainers} />
+            <Route path="/FAQs" exact component= {FAQs} />
+        </Switch>
+
+      </Router> 
+ 
+ */
